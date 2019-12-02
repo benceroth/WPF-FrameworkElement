@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfFrameworkElement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfFrameworkElement"
+        xmlns:vm="clr-namespace:WpfFrameworkElement.ViewModels"
+        xmlns:u="clr-namespace:WpfFrameworkElement.Behaviors"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <vm:MainViewModel x:Key="VM"/>
+    </Window.Resources>
+    
+    <Grid DataContext="{StaticResource VM}">
+        <ContentControl Content="{Binding RenderController}">
+            <u:DataPiping.DataPipes>
+                <u:DataPipeCollection>
+                    <u:DataPipe Source="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=ActualWidth}"
+                         Target="{Binding Path=Width, Mode=OneWayToSource}"/>
+                    <u:DataPipe Source="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=ActualHeight}"
+                         Target="{Binding Path=Height, Mode=OneWayToSource}"/>
+                </u:DataPipeCollection>
+            </u:DataPiping.DataPipes>
+        </ContentControl>
+    </Grid>
+</Window>
