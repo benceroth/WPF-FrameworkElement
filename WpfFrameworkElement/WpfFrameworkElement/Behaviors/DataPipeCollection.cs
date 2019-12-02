@@ -1,21 +1,20 @@
-﻿// <copyright file="App.xaml.cs" company="PlaceholderCompany">
+﻿// <copyright file="DataPipeCollection.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace WpfFrameworkElement
+namespace WpfFrameworkElement.Behaviors
 {
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
-    using System.Data;
     using System.Linq;
+    using System.Text;
     using System.Threading.Tasks;
     using System.Windows;
 
     /// <summary>
-    /// Interaction logic for App.xaml.
+    /// Provides XAML data piping feature.
     /// </summary>
-    public partial class App : Application
+    public class DataPipeCollection : FreezableCollection<DataPipe>
     {
     }
 }

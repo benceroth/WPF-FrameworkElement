@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\WpfFrameworkElement.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -70,15 +71,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\DataPipe.cs" />
+    <Compile Include="Behaviors\DataPipeCollection.cs" />
     <Compile Include="Behaviors\DataPiping.cs" />
     <Compile Include="Factories\RenderModelFactory.cs" />
-    <Compile Include="Logics\RoomCrashMoveLogic.cs" />
+    <Compile Include="FrameLogic.cs" />
+    <Compile Include="Logics\IntersectionDirection.cs" />
+    <Compile Include="Logics\ElasticCollisionMoveLogic.cs" />
     <Compile Include="Logics\GravityMoveLogic.cs" />
     <Compile Include="Logics\MoveLogic.cs" />
-    <Compile Include="ProcessFrameLogic.cs" />
-    <Compile Include="Models\BallModel.cs" />
+    <Compile Include="Models\SquareModel.cs" />
     <Compile Include="Models\RenderModel.cs" />
-    <Compile Include="RenderController.cs" />
+    <Compile Include="RenderLogic.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +124,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
